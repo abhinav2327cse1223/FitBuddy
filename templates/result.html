@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FitBuddy Plan</title>
+    <style>
+        body{
+            font-family: Arial;
+            background:#f5f5f5;
+            padding:40px;
+        }
+
+        .container{
+            max-width:800px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h1{
+            text-align:center;
+        }
+
+        .day{
+            margin-bottom:20px;
+            padding:15px;
+            background:#f0f7ff;
+            border-radius:8px;
+        }
+
+        ul{
+            margin:10px 0;
+        }
+
+        .tip{
+            margin-top:30px;
+            padding:20px;
+            background:#e8ffe8;
+            border-radius:8px;
+        }
+
+        a{
+            display:block;
+            text-align:center;
+            margin-top:20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>FitBuddy Workout Plan</h1>
+
+<h3>Hello {{user_name}} 👋</h3>
+
+{% for day in plan.days %}
+
+<div class="day">
+
+<h3>{{day.day}} – {{day.focus}}</h3>
+
+<ul>
+{% for exercise in day.exercises %}
+<li>{{exercise}}</li>
+{% endfor %}
+</ul>
+
+</div>
+
+{% endfor %}
+
+<div class="tip">
+
+<h3>Nutrition Tip {{tip.icon}}</h3>
+
+<p>{{tip.tip}}</p>
+
+</div>
+
+<a href="/">Generate Another Plan</a>
+
+</div>
+
+</body>
+</html>
